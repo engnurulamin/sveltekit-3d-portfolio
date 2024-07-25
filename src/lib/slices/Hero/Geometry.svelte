@@ -11,7 +11,12 @@
 
 	let visible = false;
 
-	const material = new THREE.MeshStandardMaterial();
+	const soundeEffects = [
+		new Audio('/sounds/hit1.ogg'),
+		new Audio('/sounds/hit2.ogg'),
+		new Audio('/sounds/hit3.ogg')
+	];
+
 	const materialParams = [
 		{ color: 0x2ecc71, roughness: 0 },
 		{ color: 0xf1c40f, roughness: 0.4 },
@@ -31,6 +36,7 @@
 	}
 
 	function handleClick(event: MouseEvent) {
+		gsap.utils.random(soundeEffects).play();
 		if ('object' in event && event.object instanceof THREE.Mesh) {
 			gsap.to(event.object.rotation, {
 				x: `+=${gsap.utils.random(0, 3)}`,
