@@ -5,7 +5,6 @@
 	import IconLinkedin from '~icons/fa-brands/linkedin';
 	import IconTwitter from '~icons/simple-icons/x';
 	export let settings: Content.SettingsDocument;
-	console.log(settings);
 </script>
 
 <footer class="text-slate-600">

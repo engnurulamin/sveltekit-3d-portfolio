@@ -3,8 +3,10 @@
 
 	import IconMenu from '~icons/ic/baseline-menu';
 	import IconClose from '~icons/ic/baseline-close';
+	import NavbarLink from './NavbarLink.svelte';
 
 	export let settings: Content.SettingsDocument;
+	console.log(settings);
 
 	let open = false;
 
@@ -47,6 +49,21 @@
 						<IconClose />
 					</button>
 				</li>
+
+				{#each settings.data.nav_item as { label, link }}
+					<li class="first:mt-8">
+						<NavbarLink field={link} {label} {onLinkClick} type="mobile" />
+					</li>
+				{/each}
+			</ul>
+
+			<!-- Desktop Nav -->
+			<ul class="relative z-50 hidden flex-row items-center gap-1 bg-transparent py-0 md:flex">
+				{#each settings.data.nav_item as { label, link }}
+					<li>
+						<NavbarLink field={link} {label} {onLinkClick} type="desktop" />
+					</li>
+				{/each}
 			</ul>
 		</div>
 	</nav>
