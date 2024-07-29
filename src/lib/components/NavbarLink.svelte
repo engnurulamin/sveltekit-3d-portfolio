@@ -29,7 +29,7 @@
 	</PrismicLink>
 {:else}
 	<PrismicLink
-		class="group relative block overflow-hidden rounded px-3 text-3xl font-bold text-slate-900"
+		class="group relative block overflow-hidden rounded px-3 py-1 text-base font-bold text-slate-900"
 		{field}
 		on:click={onLinkClick}
 		aria-current={isActive ? 'page' : undefined}
