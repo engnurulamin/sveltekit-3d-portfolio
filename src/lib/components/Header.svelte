@@ -4,6 +4,7 @@
 	import IconMenu from '~icons/ic/baseline-menu';
 	import IconClose from '~icons/ic/baseline-close';
 	import NavbarLink from './NavbarLink.svelte';
+	import Button from './Button.svelte';
 
 	export let settings: Content.SettingsDocument;
 	console.log(settings);
@@ -55,6 +56,9 @@
 						<NavbarLink field={link} {label} {onLinkClick} type="mobile" />
 					</li>
 				{/each}
+				{#if isFilled.link(settings.data.cta_link)}
+					<Button linkField={settings.data.cta_link} label={settings.data.cta_label} />
+				{/if}
 			</ul>
 
 			<!-- Desktop Nav -->
@@ -64,6 +68,9 @@
 						<NavbarLink field={link} {label} {onLinkClick} type="desktop" />
 					</li>
 				{/each}
+				{#if isFilled.link(settings.data.cta_link)}
+					<Button linkField={settings.data.cta_link} label={settings.data.cta_label} class="ml-3" />
+				{/if}
 			</ul>
 		</div>
 	</nav>
