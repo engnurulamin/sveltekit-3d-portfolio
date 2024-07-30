@@ -7,7 +7,6 @@
 	import Button from './Button.svelte';
 
 	export let settings: Content.SettingsDocument;
-	console.log(settings);
 
 	let open = false;
 
