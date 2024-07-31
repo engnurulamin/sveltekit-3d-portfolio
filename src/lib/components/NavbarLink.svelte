@@ -7,9 +7,10 @@
 	export let label: KeyTextField;
 	export let onLinkClick: (event: MouseEvent) => void;
 	export let type: 'desktop' | 'mobile';
-
 	const path = asLink(field);
-	$: isActive = path && $page.url.pathname.includes(path);
+
+	// $: isActive = path && $page.url.pathname.includes(path);
+	$: isActive = path && $page.url.pathname === path;
 </script>
 
 {#if type === 'desktop'}

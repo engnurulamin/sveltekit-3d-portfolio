@@ -61,7 +61,9 @@
 </script>
 
 <div class={clsx('relative h-full w-full', className)} bind:this={component}>
-	<div class="avatar aspect-[2.5/3] overflow-hidden rounded-3xl border-2 border-slate-700">
+	<div
+		class="avatar aspect-[2.5/3] overflow-hidden rounded-3xl border-2 border-slate-700 opacity-0"
+	>
 		<PrismicImage
 			field={image}
 			class="avatar-image h-full w-full object-fill"
