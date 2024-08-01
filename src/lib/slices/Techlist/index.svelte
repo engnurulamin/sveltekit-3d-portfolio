@@ -46,9 +46,7 @@
 
 <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
 	<Bounded as="div">
-		<Heading size="xl" class="mb-8" tag="h2">
-			{slice.primary.hea}
-		</Heading>
+		<Heading size="xl" class="mb-8" tag="h2">Tech I Use</Heading>
 	</Bounded>
 
 	{#each slice.primary.item as { tech_color, tech_name }}
