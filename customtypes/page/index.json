@@ -27,6 +27,9 @@
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
+						"experience": {
+							"type": "SharedSlice"
+						},
 						"techlist": {
 							"type": "SharedSlice"
 						},
