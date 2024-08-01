@@ -450,14 +450,14 @@ export interface TechlistSliceDefaultPrimaryItemItem {
  */
 export interface TechlistSliceDefaultPrimary {
 	/**
-	 * Hea field in *Techlist → Default → Primary*
+	 * Heading field in *Techlist → Default → Primary*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: techlist.default.primary.hea
+	 * - **API ID Path**: techlist.default.primary.heading
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
-	hea: prismic.KeyTextField;
+	heading: prismic.KeyTextField;
 
 	/**
 	 * Item field in *Techlist → Default → Primary*

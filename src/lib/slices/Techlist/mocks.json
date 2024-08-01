@@ -3,11 +3,6 @@
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
 		"primary": {
-			"hea": {
-				"__TYPE__": "FieldContent",
-				"value": "fast",
-				"type": "Text"
-			},
 			"item": {
 				"__TYPE__": "GroupContentType",
 				"value": [
@@ -33,6 +28,11 @@
 						]
 					}
 				]
+			},
+			"heading": {
+				"__TYPE__": "FieldContent",
+				"value": "struggle",
+				"type": "Text"
 			}
 		},
 		"items": []
