@@ -4,7 +4,7 @@ import type * as prismic from '@prismicio/client';
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type PageDocumentDataSlicesSlice = BiographySlice | HeroSlice;
+type PageDocumentDataSlicesSlice = TechlistSlice | BiographySlice | HeroSlice;
 
 /**
  * Content for Page documents
@@ -421,81 +421,81 @@ type RichTextSliceVariation = RichTextSliceDefault;
 export type RichTextSlice = prismic.SharedSlice<'rich_text', RichTextSliceVariation>;
 
 /**
- * Item in *TechList → Default → Primary → Item*
+ * Item in *Techlist → Default → Primary → Item*
  */
-export interface TechListSliceDefaultPrimaryItemItem {
+export interface TechlistSliceDefaultPrimaryItemItem {
 	/**
-	 * Tech Name field in *TechList → Default → Primary → Item*
+	 * Tech Name field in *Techlist → Default → Primary → Item*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: tech_list.default.primary.item[].tech_name
+	 * - **API ID Path**: techlist.default.primary.item[].tech_name
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
 	tech_name: prismic.KeyTextField;
 
 	/**
-	 * Tech Color field in *TechList → Default → Primary → Item*
+	 * Tech Color field in *Techlist → Default → Primary → Item*
 	 *
-	 * - **Field Type**: Text
+	 * - **Field Type**: Color
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: tech_list.default.primary.item[].tech_color
-	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 * - **API ID Path**: techlist.default.primary.item[].tech_color
+	 * - **Documentation**: https://prismic.io/docs/field#color
 	 */
-	tech_color: prismic.KeyTextField;
+	tech_color: prismic.ColorField;
 }
 
 /**
- * Primary content in *TechList → Default → Primary*
+ * Primary content in *Techlist → Default → Primary*
  */
-export interface TechListSliceDefaultPrimary {
+export interface TechlistSliceDefaultPrimary {
 	/**
-	 * Heading field in *TechList → Default → Primary*
+	 * Hea field in *Techlist → Default → Primary*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: tech_list.default.primary.heading
+	 * - **API ID Path**: techlist.default.primary.hea
 	 * - **Documentation**: https://prismic.io/docs/field#key-text
 	 */
-	heading: prismic.KeyTextField;
+	hea: prismic.KeyTextField;
 
 	/**
-	 * Item field in *TechList → Default → Primary*
+	 * Item field in *Techlist → Default → Primary*
 	 *
 	 * - **Field Type**: Group
 	 * - **Placeholder**: *None*
-	 * - **API ID Path**: tech_list.default.primary.item[]
+	 * - **API ID Path**: techlist.default.primary.item[]
 	 * - **Documentation**: https://prismic.io/docs/field#group
 	 */
-	item: prismic.GroupField<Simplify<TechListSliceDefaultPrimaryItemItem>>;
+	item: prismic.GroupField<Simplify<TechlistSliceDefaultPrimaryItemItem>>;
 }
 
 /**
- * Default variation for TechList Slice
+ * Default variation for Techlist Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type TechListSliceDefault = prismic.SharedSliceVariation<
+export type TechlistSliceDefault = prismic.SharedSliceVariation<
 	'default',
-	Simplify<TechListSliceDefaultPrimary>,
+	Simplify<TechlistSliceDefaultPrimary>,
 	never
 >;
 
 /**
- * Slice variation for *TechList*
+ * Slice variation for *Techlist*
  */
-type TechListSliceVariation = TechListSliceDefault;
+type TechlistSliceVariation = TechlistSliceDefault;
 
 /**
- * TechList Shared Slice
+ * Techlist Shared Slice
  *
- * - **API ID**: `tech_list`
- * - **Description**: TechList
+ * - **API ID**: `techlist`
+ * - **Description**: Techlist
  * - **Documentation**: https://prismic.io/docs/slice
  */
-export type TechListSlice = prismic.SharedSlice<'tech_list', TechListSliceVariation>;
+export type TechlistSlice = prismic.SharedSlice<'techlist', TechlistSliceVariation>;
 
 declare module '@prismicio/client' {
 	interface CreateClient {
@@ -526,11 +526,11 @@ declare module '@prismicio/client' {
 			RichTextSliceDefaultPrimary,
 			RichTextSliceVariation,
 			RichTextSliceDefault,
-			TechListSlice,
-			TechListSliceDefaultPrimaryItemItem,
-			TechListSliceDefaultPrimary,
-			TechListSliceVariation,
-			TechListSliceDefault
+			TechlistSlice,
+			TechlistSliceDefaultPrimaryItemItem,
+			TechlistSliceDefaultPrimary,
+			TechlistSliceVariation,
+			TechlistSliceDefault
 		};
 	}
 }

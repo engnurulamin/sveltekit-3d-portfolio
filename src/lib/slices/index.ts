@@ -3,11 +3,11 @@
 import Biography from './Biography/index.svelte';
 import Hero from './Hero/index.svelte';
 import RichText from './RichText/index.svelte';
-import TechList from './TechList/index.svelte';
+import Techlist from './Techlist/index.svelte';
 
 export const components = {
 	biography: Biography,
 	hero: Hero,
 	rich_text: RichText,
-	tech_list: TechList
+	techlist: Techlist
 };
