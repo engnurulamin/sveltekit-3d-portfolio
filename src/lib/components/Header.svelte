@@ -63,7 +63,7 @@
 			<ul class="relative z-50 hidden flex-row items-center gap-1 bg-transparent py-0 md:flex">
 				{#each settings.data.nav_item as { label, link }}
 					<li>
-						<NavBarLink field={link} {label} {onLinkClick} type="desktop" />
+						<NavbarLink field={link} {label} {onLinkClick} type="desktop" />
 					</li>
 				{/each}
 				{#if isFilled.link(settings.data.cta_link)}
