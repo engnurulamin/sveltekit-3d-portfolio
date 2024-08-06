@@ -1,10 +1,12 @@
-<script>
+<script lang="ts">
 	import { SliceZone } from '@prismicio/svelte';
 	import { components } from '$lib/slices';
 	import Bounded from '$lib/components/Bounded.svelte';
 	import Heading from '$lib/components/Heading.svelte';
+	import { formatDate } from '$lib/formatDate';
+
 	export let data;
-	console.log(data);
+	const formattedDate = formatDate(data.page.data.date);
 </script>
 
 <Bounded>
@@ -17,7 +19,7 @@
 				</span>
 			{/each}
 		</div>
-		<p class="mt-8 border-b border-slate-600 text-xl font-medium text-slate-300">Data</p>
+		<p class="mt-8 border-b border-slate-600 text-xl font-medium text-slate-300">{formattedDate}</p>
 		<div class="prose prose-lg prose-invert mt-12 w-full max-w-none md:mt-20">
 			<SliceZone slices={data.page.data.slices} {components} />
 		</div>
