@@ -1,10 +1,10 @@
 <script lang="ts">
 	import { type Content, isFilled } from '@prismicio/client';
+	import NavBarLink from './NavBarLink.svelte';
+	import Button from './Button.svelte';
 
 	import IconMenu from '~icons/ic/baseline-menu';
 	import IconClose from '~icons/ic/baseline-close';
-	import NavbarLink from './NavbarLink.svelte';
-	import Button from './Button.svelte';
 
 	export let settings: Content.SettingsDocument;
 
@@ -20,12 +20,11 @@
 		<div
 			class="flex flex-col justify-between rounded-b-lg bg-slate-50 px-4 py-2 md:m4 md:flex-row md:items-center md:rounded-xl"
 		>
-			<div class="flex z-50 items-center justify-between">
+			<div class="flex items-center justify-between">
 				<a
 					href="/"
 					aria-label="Homepage"
-					class="text-xl z-50 font-extrabold tracking-tighter text-slate-900"
-					>{settings.data.name}</a
+					class="text-xl font-extrabold tracking-tighter text-slate-900">{settings.data.name}</a
 				>
 				<button
 					aria-expanded={open}
@@ -38,7 +37,7 @@
 			</div>
 			<!-- Mobile Nav -->
 			<ul
-				class={`fixed top-0 right-0 z-20 flex flex-col items-end gap-4 bg-slate-50 w-[80%] h-[70%] pr-4 pt-14 transition-transform duration-300 ease-in-out md:hidden ${open ? 'translate-x-0' : 'translate-x-[100%]'}`}
+				class={`fixed inset-0 z-50 flex flex-col items-end gap-4 bg-slate-50 pr-4 pt-14 transition-transform duration-300 ease-in-out md:hidden ${open ? 'translate-x-0' : 'translate-x-[100%]'}`}
 			>
 				<li>
 					<button
@@ -50,10 +49,9 @@
 						<IconClose />
 					</button>
 				</li>
-
 				{#each settings.data.nav_item as { label, link }}
 					<li class="first:mt-8">
-						<NavbarLink field={link} {label} {onLinkClick} type="mobile" />
+						<NavBarLink field={link} {label} {onLinkClick} type="mobile" />
 					</li>
 				{/each}
 				{#if isFilled.link(settings.data.cta_link)}
@@ -62,10 +60,10 @@
 			</ul>
 
 			<!-- Desktop Nav -->
-			<ul class="relative z-20 hidden flex-row items-center gap-1 bg-transparent py-0 md:flex">
+			<ul class="relative z-50 hidden flex-row items-center gap-1 bg-transparent py-0 md:flex">
 				{#each settings.data.nav_item as { label, link }}
 					<li>
-						<NavbarLink field={link} {label} {onLinkClick} type="desktop" />
+						<NavBarLink field={link} {label} {onLinkClick} type="desktop" />
 					</li>
 				{/each}
 				{#if isFilled.link(settings.data.cta_link)}
