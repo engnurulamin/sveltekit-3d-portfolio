@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { type Content, isFilled } from '@prismicio/client';
-	import NavBarLink from './NavBarLink.svelte';
+	import NavbarLink from './NavbarLink.svelte';
 	import Button from './Button.svelte';
 
 	import IconMenu from '~icons/ic/baseline-menu';
@@ -51,7 +51,7 @@
 				</li>
 				{#each settings.data.nav_item as { label, link }}
 					<li class="first:mt-8">
-						<NavBarLink field={link} {label} {onLinkClick} type="mobile" />
+						<NavbarLink field={link} {label} {onLinkClick} type="mobile" />
 					</li>
 				{/each}
 				{#if isFilled.link(settings.data.cta_link)}
