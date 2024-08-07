@@ -1,17 +1,17 @@
 <script lang="ts">
 	import { type Content, isFilled } from '@prismicio/client';
-	import NavbarLink from './NavbarLink.svelte';
-	import Button from './Button.svelte';
 
 	import IconMenu from '~icons/ic/baseline-menu';
 	import IconClose from '~icons/ic/baseline-close';
+	import NavbarLink from './NavbarLink.svelte';
+	import Button from './Button.svelte';
 
 	export let settings: Content.SettingsDocument;
 
 	let open = false;
 
 	function onLinkClick() {
-		open = false;
+		open = !open;
 	}
 </script>
 
@@ -20,7 +20,7 @@
 		<div
 			class="flex flex-col justify-between rounded-b-lg bg-slate-50 px-4 py-2 md:m4 md:flex-row md:items-center md:rounded-xl"
 		>
-			<div class="flex items-center justify-between">
+			<div class="flex z-50 items-center justify-between">
 				<a
 					href="/"
 					aria-label="Homepage"
@@ -30,16 +30,20 @@
 					aria-expanded={open}
 					aria-label="Open Menu"
 					class="block p-2 text-2xl text-slate-800 md:hidden"
-					on:click={() => (open = true)}
+					on:click={onLinkClick}
 				>
-					<IconMenu />
+					{#if open}
+						<IconClose />
+					{:else}
+						<IconMenu />
+					{/if}
 				</button>
 			</div>
 			<!-- Mobile Nav -->
 			<ul
-				class={`fixed inset-0 z-50 flex flex-col items-end gap-4 bg-slate-50 pr-4 pt-14 transition-transform duration-300 ease-in-out md:hidden ${open ? 'translate-x-0' : 'translate-x-[100%]'}`}
+				class={`fixed top-0 right-0 z-10 flex flex-col items-end gap-4 bg-slate-50 w-[60%] h-[60%] pr-4 pt-14 transition-transform duration-300 ease-in-out md:hidden ${open ? 'translate-x-0' : 'translate-x-[100%]'}`}
 			>
-				<li>
+				<!-- <li>
 					<button
 						aria-expanded={open}
 						aria-label="Close Menu"
@@ -48,7 +52,8 @@
 					>
 						<IconClose />
 					</button>
-				</li>
+				</li> -->
+
 				{#each settings.data.nav_item as { label, link }}
 					<li class="first:mt-8">
 						<NavbarLink field={link} {label} {onLinkClick} type="mobile" />
