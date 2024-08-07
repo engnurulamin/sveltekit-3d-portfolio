@@ -44,7 +44,11 @@
 	});
 </script>
 
-<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
+<section
+	class="overflow-hidden"
+	data-slice-type={slice.slice_type}
+	data-slice-variation={slice.variation}
+>
 	<Bounded as="div">
 		<Heading size="xl" class="mb-8" tag="h2">Tech I Use</Heading>
 	</Bounded>
