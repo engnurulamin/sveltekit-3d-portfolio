@@ -3,8 +3,11 @@
 	import Heading from '$lib/components/Heading.svelte';
 	import { isFilled, type Content } from '@prismicio/client';
 	import { PrismicRichText } from '@prismicio/svelte';
+	import ContentList from './ContentList.svelte';
 
 	export let slice: Content.ContentIndexSlice;
+	export let items: Content.BlogpostDocument[] | Content.ProjectDocument[];
+	console.log(items[0].data);
 </script>
 
 <Bounded data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
@@ -16,4 +19,10 @@
 			<PrismicRichText field={slice.primary.description} />
 		</div>
 	{/if}
+
+	<ContentList
+		{items}
+		fallbackItemImage={slice.primary.fallback_item_image}
+		viewMoreText={slice.primary.view_more_text}
+	/>
 </Bounded>
