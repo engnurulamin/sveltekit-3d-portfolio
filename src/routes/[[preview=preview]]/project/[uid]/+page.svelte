@@ -1,9 +1,7 @@
-<script>
-	import { SliceZone } from '@prismicio/svelte';
-
-	import { components } from '$lib/slices';
+<script lang="ts">
+	import ContentBody from '$lib/components/ContentBody.svelte';
 
 	export let data;
 </script>
 
-<SliceZone slices={data.page.data.slices} {components} />
+<ContentBody page={data.page} />
