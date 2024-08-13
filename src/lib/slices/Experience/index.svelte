@@ -37,7 +37,7 @@
 			<Heading tag="h2" size="md">{slice.primary.heading}</Heading>
 			{#each slice.primary.item as item}
 				<div class="ml-6 mt-8 max-w-prose md:ml-12 md:mt-16">
-					<Heading tag="h3" size="sm">
+					<Heading tag="h3" size="sm" class="border-b-2 border-slate-400 pb-2 mb-2">
 						{item.title}
 					</Heading>
 
